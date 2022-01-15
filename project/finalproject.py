@@ -52,16 +52,23 @@ def crossing():
         crosser()
         if ttc > end:
             returner()
-        elif ttc == end:
+                         # maybe this will help
+                         # ttc is zero AND there's no one left at the start
+        elif ttc == end and len(start) == 0:
             break
-        elif ttc < end:
+        elif ttc == end and len(start) != 0: 
+            print("You did not get everyone across in time.")
+            break
+        if ttc < end:
             print("You ran out of time")
             break
-        else:
-            print("You ran out of time")
-            break
+        #else:
+           # print("You ran out of time")
+           # break
 
 print("Welcome to the bridge riddle.You have 17 minutes to cross this very dangerous bridge - AT NIGHT! There are 3 other people who need to cross this bridge with you. Only 2 people can cross the bridge at once since it is dark and unstable. There is only one lantern available among the group, so both people must cross together. Each person crosses the bridge at their own pace. Person A can cross the bridge in 1 minute, Person B in 2, Person C in 5, Person D is the slowest and takes 10 minutes to cross. Any person can wait on either side of the bridge in the darkness, but all 4 people must have crossed to the other side by the end of 17 minutes or the bridge will break.\n")
 crossing()
-if ttc == end:
-    print("Congratulations!!!")
+if ttc == end and len(start) == 0:
+    print("Congratulations!")
+else:
+    print(f"You left {start} to die!")
